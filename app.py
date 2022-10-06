@@ -21,10 +21,12 @@ tagsPai = bs.find_all('div', attrs={'data-component-type':'s-search-result'})
 
 produtos = []
 for i in tagsPai:
-    precoInt = i.find('span',attrs={'class':'a-price-whole'})
-    precoFrac= i.find('span',attrs={'class':'a-price-fraction'})
+    precoInt = i.find('span',attrs={'class':'a-offscreen'})
+    #precoInt = i.find('span',attrs={'class':'a-price-whole'}) /*caminho mais longo de obter o preço*/
+    #precoFrac= i.find('span',attrs={'class':'a-price-fraction'}) /*caminho mais longo*/
     if str(type(precoInt)) != "<class 'NoneType'>":
-        preco = str(precoInt.text) + str(precoFrac.text)       
+        #preco = str(precoInt.text) + str(precoFrac.text)  /*caminho mais longo*/
+        preco  = str(precoInt.text)     
     else:preco = 'Indeterminado'
 
     h2 = i.find('h2')
@@ -33,6 +35,4 @@ for i in tagsPai:
     
     produtos.append({'nome':nome,'valor':preco})
 
-
 criaPlan('iPhone_Amazon', produtos)
-

@@ -16,10 +16,10 @@ def criaPlan(nomeArq, produtos):
     estiliza(plan,celulas,1)
 
 
-    addPessoas(produtos, plan, 3)
+    addProdutos(produtos, plan, 3)
     wb.save(f'{nomeArq}.xlsx')
 
-def addPessoas(produtos, plan, linhaInicial):
+def addProdutos(produtos, plan, linhaInicial):
     #Adiciona as pessoas e seus dados na planilha.
     linha = linhaInicial
     for p in produtos:
